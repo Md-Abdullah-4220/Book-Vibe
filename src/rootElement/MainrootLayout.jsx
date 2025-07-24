@@ -1,10 +1,14 @@
+import { createBrowserRouter, createRoutesFromElements, RouterProvider } from "react-router-dom";
 
 
 const MainrootLayout = () => {
+    const route = createBrowserRouter(
+        createRoutesFromElements(
+
+        )
+    );
     return (
-        <div>
-            
-        </div>
+       <RouterProvider router={route} />
     );
 };
 
