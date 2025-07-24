@@ -10,3 +10,7 @@
   --font-bodydisplay: font-family: "Playfair Display", serif;
   --font-buttondiplay: font-family: "Work Sans", sans-serif;
 }
+
+.active {
+  @apply border border-green-500 text-green-600
+}
