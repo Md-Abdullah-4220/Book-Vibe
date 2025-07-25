@@ -32,7 +32,7 @@ const Naveber = () => {
 
       
       <div className="flex space-x-3">
-        <button className="bg-green-600 text-white px-4 py-2 rounded-md hover:bg-green-700 text-sm md:text-base">
+        <button className="bg-green-500 text-white px-4 py-2 rounded-md text-sm md:text-base">
           Sign In
         </button>
         <button className="bg-cyan-400 text-white px-4 py-2 rounded-md hover:bg-cyan-500 text-sm md:text-base">
