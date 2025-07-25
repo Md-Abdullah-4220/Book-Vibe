@@ -23,7 +23,7 @@ const Home = () => {
       </div>
       <div className="mt-10">
         <h1 className="text-center text-5xl">Books</h1>
-        <div className="mt-6 grid grid-cols-3 gap-8 ">
+        <div className="mt-6 grid grid-cols-5 gap-8 ">
           {loadData.map((res) => (         
             <BookCard key={res.id} book={res}/>
           ))}
