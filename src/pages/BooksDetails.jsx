@@ -36,7 +36,7 @@ const BooksDetails = () => {
   }
 
 
-  const { bookName, author, image, review, totalPages, publisher, yearOfPublishing, rating, category, tags } = selectedBook;
+  const { bookName, author, image, review, totalPages, publisher, yearOfPublishing, rating, category, tags, bookId} = selectedBook;
 
   return (
     <div className="bg-white p-6 max-w-5xl mx-auto rounded-lg shadow-md grid md:grid-cols-2 gap-10 items-start font-sans my-10">
@@ -92,10 +92,10 @@ const BooksDetails = () => {
 
         {/* Buttons */}
         <div className="flex gap-4 mt-4">
-          <button className="px-6 py-2 border border-black rounded-md text-black hover:bg-gray-100">
+          <button onClick={() => handelBookid(bookId)} className="px-6 py-2 border border-black rounded-md text-black hover:bg-gray-100">
             Read
           </button>
-          <button className="px-6 py-2 bg-[#3BB77E] text-white rounded-md hover:bg-[#329a68]">
+          <button className="px-6 py-2 bg-cyan-500 text-white rounded-md hover:bg-cyan-600">
             Wishlist
           </button>
         </div>

@@ -9,7 +9,7 @@ export const useBookContext = () => {
   return useContext(BookContext);
 };
 
-// Create the provider component
+
 export const BookProvider = ({ children }) => {
   const [books, setBooks] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -33,9 +33,9 @@ export const BookProvider = ({ children }) => {
 
 
 const getBookById = (id) => {
-  // Convert the id parameter to a number since URL params are strings
+
   const numericId = parseInt(id, 10);
-  // Look for bookId instead of id
+
   const book = books.find((book) => book.bookId === numericId);
   setSelectedBook(book);
   return book;
@@ -43,7 +43,7 @@ const getBookById = (id) => {
 
 
 
-  // Values to be provided to consumers
+
   const value = {
     books,
     loading,

@@ -1,4 +1,5 @@
 import { IoIosArrowDown } from "react-icons/io";
+import ReadsBooks from "../components/ReadsBooks"
 
 const ListedBooks = () => {
   return (
@@ -8,19 +9,39 @@ const ListedBooks = () => {
           <h1 className="text-5xl font-bold">Book</h1>
         </div>
         <div className="flex justify-center mt-5">
-          <div className="p-5 bg-green-500 text-white flex items-center justify-center cursor-pointer text-center rounded-2xl font-medium text-2xl">
+          <div className="px-5 py-3 bg-green-500 text-white flex items-center justify-center cursor-pointer text-center rounded-2xl font-medium text-2xl">
             <button>Sort By</button>
             <IoIosArrowDown />
           </div>
         </div>
       </div>
-      <button className="px-4 py-2 font-medium text-blue-600 border-b-2 border-white">
-        Read Books
-      </button>
-      <button className="px-4 py-2 font-medium text-gray-500 hover:text-gray-700">
-        Wishlist Books
-      </button>
-      <div className="border-b-2 -m-2.5 border-gray-200 pb-2"></div>
+      <div>
+        {/* name of each tab group should be unique */}
+        <div className="tabs tabs-lift">
+          <input
+            type="radio"
+            name="my_tabs_3"
+            className="tab"
+            aria-label="Read Books"
+          />
+          <div className="tab-content bg-base-100 border-base-300 p-6">
+            Read Books
+            < ReadsBooks />
+          </div>
+
+          <input
+            type="radio"
+            name="my_tabs_3"
+            className="tab"
+            aria-label="Wishlist Books"
+            defaultChecked
+          />
+          <div className="tab-content bg-base-100 border-base-300 p-6">
+            Wishlist Books
+
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
