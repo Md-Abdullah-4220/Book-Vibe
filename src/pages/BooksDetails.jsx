@@ -6,16 +6,11 @@ import { useEffect } from "react";
 const BooksDetails = () => {
   const { id } = useParams();
   const navigate = useNavigate();
-  const { getBookById, selectedBook, loading } = useBookContext();
+  const { getBookById, selectedBook, loading, } = useBookContext();
 
   useEffect(() => {
-    console.log("ID from URL:", id);
-
-
+    
     const book = getBookById(id);
-    console.log("Selected book:", book);
-
-
     if (!book && !loading) {
       navigate("/not-found");
     }
@@ -92,7 +87,7 @@ const BooksDetails = () => {
 
         {/* Buttons */}
         <div className="flex gap-4 mt-4">
-          <button onClick={() => handelBookid(bookId)} className="px-6 py-2 border border-black rounded-md text-black hover:bg-gray-100">
+          <button onClick={() => getBookById(bookId)} className="px-6 py-2 border border-black rounded-md text-black hover:bg-gray-100">
             Read
           </button>
           <button className="px-6 py-2 bg-cyan-500 text-white rounded-md hover:bg-cyan-600">

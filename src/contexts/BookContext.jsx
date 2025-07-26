@@ -16,6 +16,14 @@ export const BookProvider = ({ children }) => {
   const [selectedBook, setSelectedBook] = useState(null);
 
 
+  const handelBookid = (id) => {
+    console.log(id);
+    return id
+    
+
+  }
+
+
   useEffect(() => {
     const fetchBooks = async () => {
       try {
@@ -49,6 +57,7 @@ const getBookById = (id) => {
     loading,
     selectedBook,
     getBookById,
+    handelBookid,
   };
 
   return <BookContext.Provider value={value}>{children}</BookContext.Provider>;
