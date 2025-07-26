@@ -2,11 +2,11 @@ import { Star } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const BookCard = ({ book }) => {
-  const { image, tags, bookName, author, rating, category } = book;
+  const { image, tags, bookName, author, rating, category, bookId} = book;
 
   return (
     <div className="w-full h-full">
-      <Link>
+      <Link to={`/books/${bookId}`}>
         <div className="flex flex-col justify-between h-full rounded-2xl border border-gray-300 p-4 shadow-sm hover:shadow-md transition duration-300">
           {/* Top Section */}
           <div>

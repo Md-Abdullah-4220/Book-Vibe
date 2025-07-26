@@ -1,3 +1,5 @@
+
+
 export const displayCard  = async () => {
     try {
         const res = await fetch('/src/assets/booksData.json');

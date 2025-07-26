@@ -1,9 +1,10 @@
-import {useLoaderData } from "react-router-dom";
+import { useBookContext } from "../contexts/BookContext";
 import imge from "../assets/7259813.png";
 import BookCard from "../components/BookCard";
 
 const Home = () => {
-  const loadData = useLoaderData();
+  const { books, loading } = useBookContext();
+
   return (
     <div className="px-6 md:px-16 py-4 ">
       <div className="bg-gray-200 p-10 flex justify-center items-center h-[680px] rounded-2xl">
@@ -23,11 +24,15 @@ const Home = () => {
       </div>
       <div className="mt-10">
         <h1 className="text-center text-5xl">Books</h1>
-        <div className="mt-6 grid grid-cols-5 gap-8 ">
-          {loadData.map((res) => (         
-            <BookCard key={res.id} book={res}/>
-          ))}
-        </div>
+        {loading ? (
+          <p className="text-center mt-4">Loading books...</p>
+        ) : (
+          <div className="mt-6 grid grid-cols-5 gap-8 ">
+            {books.map((book,idx) => (
+              <BookCard key={idx} book={book} />
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );
