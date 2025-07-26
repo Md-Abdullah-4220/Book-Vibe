@@ -2,6 +2,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { useBookContext } from "../contexts/BookContext";
 import { useEffect } from "react";
 
+
 const BooksDetails = () => {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -20,6 +21,10 @@ const BooksDetails = () => {
     }
   }, [id, getBookById, navigate, loading]);
 
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   if (loading) {
     return <div className="text-center p-10">Loading book details...</div>;
@@ -100,3 +105,7 @@ const BooksDetails = () => {
 };
 
 export default BooksDetails;
+
+
+
+

@@ -21,8 +21,8 @@ function App() {
         <Route path="books/:id" element={<BooksDetails />} />
         <Route path="listedBooks" element={ <HomeRootLayout />}>
         <Route path="listedBooks"  element={<ListedBooks />}/>
-        <Route path="readsBooks"  element={<ReadsBooks />}/>
-        <Route path="WhishlistBooks"  element={<WhishlistBooks />}/>
+          <Route path="readsBooks"  element={<ReadsBooks />}/>
+          <Route path="WhishlistBooks"  element={<WhishlistBooks />}/>
         </Route>
         <Route path="PagesToRead" element={<PagesToRead />} />
         <Route path="*" element={<NotFounde />} />
