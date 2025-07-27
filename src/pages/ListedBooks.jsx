@@ -1,5 +1,6 @@
 import { IoIosArrowDown } from "react-icons/io";
 import ReadsBooks from "../components/ReadsBooks"
+import WhishlistBooks from "../components/WhishlistBooks";
 
 const ListedBooks = () => {
   return (
@@ -22,23 +23,22 @@ const ListedBooks = () => {
             type="radio"
             name="my_tabs_3"
             className="tab"
-            aria-label="Read Books"
+            aria-label="Wishlist Books"
+            defaultChecked
           />
           <div className="tab-content bg-base-100 border-base-300 p-6">
-            Read Books
-            < ReadsBooks />
+            <WhishlistBooks />
+
           </div>
 
           <input
             type="radio"
             name="my_tabs_3"
             className="tab"
-            aria-label="Wishlist Books"
-            defaultChecked
+            aria-label="Read Books"
           />
           <div className="tab-content bg-base-100 border-base-300 p-6">
-            Wishlist Books
-
+            < ReadsBooks />
           </div>
         </div>
       </div>

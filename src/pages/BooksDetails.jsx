@@ -6,10 +6,9 @@ import { useEffect } from "react";
 const BooksDetails = () => {
   const { id } = useParams();
   const navigate = useNavigate();
-  const { getBookById, selectedBook, loading, } = useBookContext();
+  const { getBookById, selectedBook, loading, addToReadBooks, addToWishlist } = useBookContext();
 
   useEffect(() => {
-    
     const book = getBookById(id);
     if (!book && !loading) {
       navigate("/not-found");
@@ -30,8 +29,17 @@ const BooksDetails = () => {
     return <div className="text-center p-10">Book not found</div>;
   }
 
+  const handleReadClick = () => {
+    addToReadBooks(selectedBook);
+    navigate("/listedBooks");
+  };
 
-  const { bookName, author, image, review, totalPages, publisher, yearOfPublishing, rating, category, tags, bookId} = selectedBook;
+  const handleWishlistClick = () => {
+    addToWishlist(selectedBook);
+    navigate("/listedBooks");
+  };
+
+  const { bookName, author, image, review, totalPages, publisher, yearOfPublishing, rating, category, tags } = selectedBook;
 
   return (
     <div className="bg-white p-6 max-w-5xl mx-auto rounded-lg shadow-md grid md:grid-cols-2 gap-10 items-start font-sans my-10">
@@ -87,10 +95,10 @@ const BooksDetails = () => {
 
         {/* Buttons */}
         <div className="flex gap-4 mt-4">
-          <button onClick={() => getBookById(bookId)} className="px-6 py-2 border border-black rounded-md text-black hover:bg-gray-100">
+          <button onClick={handleReadClick} className="px-6 py-2 border border-black rounded-md text-black hover:bg-gray-100">
             Read
           </button>
-          <button className="px-6 py-2 bg-cyan-500 text-white rounded-md hover:bg-cyan-600">
+          <button onClick={handleWishlistClick} className="px-6 py-2 bg-cyan-500 text-white rounded-md hover:bg-cyan-600">
             Wishlist
           </button>
         </div>
@@ -100,7 +108,3 @@ const BooksDetails = () => {
 };
 
 export default BooksDetails;
-
-
-
-
