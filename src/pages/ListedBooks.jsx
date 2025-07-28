@@ -1,8 +1,11 @@
 import { IoIosArrowDown } from "react-icons/io";
 import ReadsBooks from "../components/ReadsBooks"
 import WhishlistBooks from "../components/WhishlistBooks";
+import { useBookContext } from "../contexts/BookContext";
 
 const ListedBooks = () => {
+  const {activeTab} = useBookContext()
+ 
   return (
     <div className="py-4 px-6 md:px-16 h-min">
       <div className="flex flex-col">
@@ -24,7 +27,7 @@ const ListedBooks = () => {
             name="my_tabs_3"
             className="tab"
             aria-label="Wishlist Books"
-            defaultChecked
+            defaultChecked={activeTab == "wish"}
           />
           <div className="tab-content bg-base-100 border-base-300 p-6">
             <WhishlistBooks />
@@ -36,6 +39,7 @@ const ListedBooks = () => {
             name="my_tabs_3"
             className="tab"
             aria-label="Read Books"
+            defaultChecked={activeTab == "read"}
           />
           <div className="tab-content bg-base-100 border-base-300 p-6">
             < ReadsBooks />

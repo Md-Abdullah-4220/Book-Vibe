@@ -6,7 +6,7 @@ import { useEffect } from "react";
 const BooksDetails = () => {
   const { id } = useParams();
   const navigate = useNavigate();
-  const { getBookById, selectedBook, loading, addToReadBooks, addToWishlist } = useBookContext();
+  const { getBookById, selectedBook, loading, addToReadBooks, addToWishlist,activeTab,setActiveTab} = useBookContext();
 
   useEffect(() => {
     const book = getBookById(id);
@@ -95,12 +95,13 @@ const BooksDetails = () => {
 
         
         <div className="flex gap-4 mt-4">
-          <button onClick={handleReadClick} className="px-6 py-2 border border-black rounded-md text-black hover:bg-gray-100">
+          <button onClick={() => {handleReadClick(),setActiveTab("read")}} className={`${activeTab === "read"}  px-6 py-2 border border-black rounded-md text-black hover:bg-gray-100`}>
             Read
           </button>
-          <button onClick={handleWishlistClick} className="px-6 py-2 bg-cyan-500 text-white rounded-md hover:bg-cyan-600">
+          <button onClick={() => {handleWishlistClick(), setActiveTab("wish")}} className={`${activeTab === "wish"}  px-6 py-2 bg-cyan-500 text-white rounded-md hover:bg-cyan-600`}>
             Wishlist
           </button>
+          
         </div>
       </div>
     </div>

@@ -21,13 +21,14 @@ const PagesToRead = () => {
 
 
   const chartData = readBooks.map(book => ({
-    x: book.bookName,  
+    x: book.bookName.slice(0, 6),  
     y: book.totalPages || 500 
   }));
-  
+   console.log(chartData);
+   
 
   return (
-    <div className="p-20 md:h-1/2 md:w-1/2 place-items-center text-[20px]">
+    <div className="p-20 md:h-1/2 md:w-1/2 place-items-center text-[20px] mx-auto">
       <VictoryChart domainPadding={25} theme={VictoryTheme.clean}>
         <VictoryBar data={chartData} />
       </VictoryChart>

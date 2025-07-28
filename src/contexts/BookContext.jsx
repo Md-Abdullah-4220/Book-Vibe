@@ -1,7 +1,6 @@
 import { createContext, useContext, useState, useEffect } from "react";
 import { displayCard } from "../components/CardFatch";
 
-
 const BookContext = createContext();
 
 // eslint-disable-next-line react-refresh/only-export-components
@@ -9,20 +8,24 @@ export const useBookContext = () => {
   return useContext(BookContext);
 };
 
-
 export const BookProvider = ({ children }) => {
   const [books, setBooks] = useState([]);
   const [loading, setLoading] = useState(true);
   const [selectedBook, setSelectedBook] = useState(null);
   const [readBooks, setReadBooks] = useState([]);
   const [wishlistBooks, setWishlistBooks] = useState([]);
+  const [activeTab, setActiveTab] = useState("wish");
 
+
+
+ console.log(activeTab);
+ 
+  
 
   const handelBookid = (id) => {
     console.log(id);
-    return id
-  }
-
+    return id;
+  };
 
   useEffect(() => {
     const fetchBooks = async () => {
@@ -39,30 +42,28 @@ export const BookProvider = ({ children }) => {
     fetchBooks();
   }, []);
 
+  const getBookById = (id) => {
+    const numericId = parseInt(id, 10);
+    const book = books.find((book) => book.bookId === numericId);
+    setSelectedBook(book);
+    return book;
+  };
 
-const getBookById = (id) => {
-  const numericId = parseInt(id, 10);
-  const book = books.find((book) => book.bookId === numericId);
-  setSelectedBook(book);
-  return book;
-};
+  // Add book to read list
+  const addToReadBooks = (book) => {
+    if (!readBooks.some((readBook) => readBook.bookId === book.bookId)) {
+      setReadBooks([...readBooks, book]);
+    }
+  };
 
-// Add book to read list
-const addToReadBooks = (book) => {
-
-  if (!readBooks.some(readBook => readBook.bookId === book.bookId)) {
-    setReadBooks([...readBooks, book]);
-  }
-};
-
-// Add book to wishlist
-const addToWishlist = (book) => {
-  
-  if (!wishlistBooks.some(wishlistBook => wishlistBook.bookId === book.bookId)) {
-    setWishlistBooks([...wishlistBooks, book]);
-  }
-};
-
+  // Add book to wishlist
+  const addToWishlist = (book) => {
+    if (
+      !wishlistBooks.some((wishlistBook) => wishlistBook.bookId === book.bookId)
+    ) {
+      setWishlistBooks([...wishlistBooks, book]);
+    }
+  };
 
   const value = {
     books,
@@ -74,6 +75,8 @@ const addToWishlist = (book) => {
     handelBookid,
     addToReadBooks,
     addToWishlist,
+    activeTab,
+    setActiveTab,
   };
 
   return <BookContext.Provider value={value}>{children}</BookContext.Provider>;
