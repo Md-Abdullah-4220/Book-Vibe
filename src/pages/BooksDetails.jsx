@@ -60,7 +60,7 @@ const BooksDetails = () => {
         </p>
         <p className="text-gray-700">{category}</p>
 
-        {/* Review */}
+        
         <div>
           <h4 className="font-semibold">Review :</h4>
           <p className="text-gray-600 text-sm leading-relaxed">
