@@ -43,7 +43,7 @@ const BooksDetails = () => {
 
   return (
     <div className="bg-white p-6 max-w-5xl mx-auto rounded-lg shadow-md grid md:grid-cols-2 gap-10 items-start font-sans my-10">
-      {/* Book Image */}
+      
       <div className="flex justify-center">
         <img
           src={image}

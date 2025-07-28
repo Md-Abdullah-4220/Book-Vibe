@@ -49,7 +49,7 @@ const getBookById = (id) => {
 
 // Add book to read list
 const addToReadBooks = (book) => {
-  // Check if book is already in read list
+
   if (!readBooks.some(readBook => readBook.bookId === book.bookId)) {
     setReadBooks([...readBooks, book]);
   }
@@ -57,7 +57,7 @@ const addToReadBooks = (book) => {
 
 // Add book to wishlist
 const addToWishlist = (book) => {
-  // Check if book is already in wishlist
+  
   if (!wishlistBooks.some(wishlistBook => wishlistBook.bookId === book.bookId)) {
     setWishlistBooks([...wishlistBooks, book]);
   }
