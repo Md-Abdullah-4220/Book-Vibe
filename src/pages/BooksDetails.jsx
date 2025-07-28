@@ -77,7 +77,7 @@ const BooksDetails = () => {
           ))}
         </div>
 
-        {/* Other Info */}
+        
         <div className="text-sm text-gray-700 space-y-1">
           <p>
             <span className="font-medium">Number of Pages:</span> {totalPages}
@@ -93,7 +93,7 @@ const BooksDetails = () => {
           </p>
         </div>
 
-        {/* Buttons */}
+        
         <div className="flex gap-4 mt-4">
           <button onClick={handleReadClick} className="px-6 py-2 border border-black rounded-md text-black hover:bg-gray-100">
             Read
