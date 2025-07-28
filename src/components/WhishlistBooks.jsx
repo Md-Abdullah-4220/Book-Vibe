@@ -1,10 +1,8 @@
 import { MapPin, FileText, User2 } from "lucide-react"; 
-import { useBookContext } from "../contexts/BookContext";
 
-const WhishlistBooks = () => {
-  const { wishlistBooks } = useBookContext();
+const WhishlistBooks = ({books}) => {
 
-  if (wishlistBooks.length === 0) {
+  if (books.length === 0) {
     return (
       <div className="max-w-5xl mx-auto p-4 text-center">
         <h2 className="text-2xl font-bold text-gray-800 mb-4">
@@ -24,7 +22,7 @@ const WhishlistBooks = () => {
       </h2>
 
       <div className="space-y-6">
-        {wishlistBooks.map((book) => (
+        {books.map((book) => (
           <div
             key={book.bookId}
             className="flex flex-col md:flex-row items-center md:items-start bg-white shadow-lg rounded-2xl p-6 gap-6 border border-gray-200"

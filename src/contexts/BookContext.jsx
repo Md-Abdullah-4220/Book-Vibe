@@ -16,9 +16,6 @@ export const BookProvider = ({ children }) => {
   const [wishlistBooks, setWishlistBooks] = useState([]);
   const [activeTab, setActiveTab] = useState("wish");
 
-
-
- console.log(activeTab);
  
   
 

@@ -1,10 +1,8 @@
 import { MapPin, FileText, User2 } from "lucide-react"; 
-import { useBookContext } from "../contexts/BookContext";
 
-const ReadsBooks = () => {
-  const { readBooks } = useBookContext();
+const ReadsBooks = ({books}) => {
 
-  if (readBooks.length === 0) {
+  if (books.length === 0) {
     return (
       <div className="max-w-5xl mx-auto p-4 text-center">
         <h2 className="text-2xl font-bold text-gray-800 mb-4">Your Reading List</h2>
@@ -18,7 +16,7 @@ const ReadsBooks = () => {
       <h2 className="text-2xl font-bold text-gray-800 mb-4">Your Reading List</h2>
       
       <div className="space-y-6">
-        {readBooks.map((book) => (
+        {books.map((book) => (
           <div key={book.bookId} className="flex flex-col md:flex-row items-center md:items-start bg-white shadow-lg rounded-2xl p-6 gap-6 border border-gray-200">
             {/* Book Image */}
             <div className="w-[140px] h-[200px] flex-shrink-0">
