@@ -68,7 +68,7 @@ const BooksDetails = () => {
           </p>
         </div>
 
-        {/* Tags */}
+        
         <div className="flex gap-2 flex-wrap">
           {tags && tags.map((tag, index) => (
             <span key={index} className="text-xs px-2 py-1 rounded-full bg-green-100 text-green-700 font-medium">
